@@ -5,13 +5,14 @@ body{
 	justify-content:center;
 	align-items: center;
 	height: 100vh;
+	font-family: "Roboto",sans-serif;
 }
 
 main{
 	display: flex;
 	border: 10px solid black;
 	width: 50rem;
-	height:47rem;
+	height:50.5rem;
 	background: linear-gradient(to bottom right, rgb(154, 14, 14),rgb(36, 34, 34));
 
 	
@@ -22,6 +23,8 @@ main{
 	width: 60rem;
 	
 
+	
+
 }
 
 .items {
@@ -29,6 +32,7 @@ main{
 	place-content: center;
 	gap: 2rem;
 	border-radius: 10px;
+	
 }
 
 button{
@@ -44,15 +48,12 @@ button:hover{
 
 #game{
 	display: flex;
-	height: 40em;
+	height: 43em;
 	width: 50em;
 	border: 2px solid red;
 	flex-wrap: wrap;
 	justify-content: center;
-
 	
-	
-
 }
 
 #restart{
@@ -63,9 +64,11 @@ button:hover{
 }
 
 .square{
-	
-	height: 13em;
-	width: 14em;
+	justify-content:center;
+	align-items: center;
+	display: flex;
+	height: 210px;
+	width: 210px;
 	border: 10px solid black;
-	box-sizing: border-box;
+	font-size: 100px;
 }
