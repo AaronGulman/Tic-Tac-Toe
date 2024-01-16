@@ -9,7 +9,7 @@
 </head>
 <body>
 	<main>
-		<div class="board">
+		<div class="board" id="board">
 			<header>
 				<select name="difficulty" id="difficulty">
 					<option value="Easy">Easy</option>
@@ -26,21 +26,25 @@
 			</header>
 			
 			<div id="game">
-				<div class="square">X</div>
-				<div class="square">0</div>
-				<div class="square"></div>
-				<div class="square"></div>
-				<div class="square"></div>
-				<div class="square"></div>
-				<div class="square"></div>
-				<div class="square"></div>
-				<div class="square"></div>
+				<div class="square" data-square>X</div>
+				<div class="square" data-square>0</div>
+				<div class="square" data-square></div>
+				<div class="square" data-square></div>
+				<div class="square" data-square></div>
+				<div class="square" data-square></div>
+				<div class="square" data-square></div>
+				<div class="square" data-square></div>
+				<div class="square" data-square></div>
 
 			</div>
-
-			<div id="restart">
-				<button>Restart</button>
+			<div class="winningMsg" id="winningMsg">
+				<div data-winning-Msg-Txt></div>
+				<div id="restart">
+					<button>Restart</button>
+				</div>
 			</div>
+
+
 		</div>
 
 	</main>
