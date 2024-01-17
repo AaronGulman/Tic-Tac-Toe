@@ -64,6 +64,27 @@ button:hover{
 
 }
 
+
+.square.x,
+.square.circle{
+	cursor: not-allowed;
+}
+
+
+.square.x::before,
+.square.x::after{
+	background-color: #000;
+}
+
+.game.x .square:not(.x):not(.circle):hover::before,
+.game.x .square:not(.x):not(.circle):hover::after{
+
+	background-color: rgb(121, 115, 115)
+}
+
+
+
+
 .square{
 	justify-content:center;
 	align-items: center;
@@ -75,54 +96,60 @@ button:hover{
 	cursor: pointer;
 }
 
-.square.x,
-.square.circle{
-	cursor: not-allowed;
-}
 
 select{
 	text-align: center;
 	outline: none;
 }
 
-.square.x::before{
+.square.x::before,
+.game.x .square:not(.x):not(.circle):hover::before
+{
 	transform: rotate(45deg);
 }
 
-.square.x::after{
+.square.x::after,
+.game.x .square:not(.x):not(.circle):hover::after{
 	transform: rotate(-45deg);
 }
 
 .square.x::before,
-.square.x::after{
+.square.x::after,
+.game.x .square:not(.x):not(.circle):hover::before,
+.game.x .square:not(.x):not(.circle):hover::after {
 	content: '';
 	position:absolute;
 	width:10px;
 	height: 150px;
-	background-color: #000;;
 
 }
 
 
-.square.circle::before{
+
+
+.square.circle::before,
+.square.circle::after,
+.game.circle .square:not(.x):not(.circle):hover::before,
+.game.circle .square:not(.x):not(.circle):hover::after {
+	content: '';
+	position:absolute;
+	border-radius: 50%;
+
+
+}
+
+.square.circle::before,
+.game.circle .square:not(.x):not(.circle):hover::before{
 	transform: rotate(45deg);
 	width:140px;
 	height: 140px;
 	background-color: #000;
 }
 
-.square.circle::after{
+.square.circle::after,
+.game.circle .square:not(.x):not(.circle):hover::after{
 	transform: rotate(-45deg);
 	width:calc(160px *.7);
 	height: calc(160px * .7);
 	background-color: #ffffff;;
-}
-
-.square.circle::before,
-.square.circle::after{
-	content: '';
-	position:absolute;
-	border-radius: 50%;
-
-
 }
