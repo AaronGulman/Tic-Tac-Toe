@@ -76,10 +76,16 @@ button:hover{
 	background-color: #000;
 }
 
+.square.circle::before,
+.square.circle::after{
+	background-color: #000;
+}
+
+.game.circle .square:not(.x):not(.circle):hover:before,
 .game.x .square:not(.x):not(.circle):hover::before,
 .game.x .square:not(.x):not(.circle):hover::after{
 
-	background-color: rgb(121, 115, 115)
+	background-color: rgb(121, 115, 115);
 }
 
 
@@ -134,21 +140,20 @@ select{
 	content: '';
 	position:absolute;
 	border-radius: 50%;
+	
 
 
 }
 
 .square.circle::before,
 .game.circle .square:not(.x):not(.circle):hover::before{
-	transform: rotate(45deg);
 	width:140px;
 	height: 140px;
-	background-color: #000;
+	
 }
 
 .square.circle::after,
 .game.circle .square:not(.x):not(.circle):hover::after{
-	transform: rotate(-45deg);
 	width:calc(160px *.7);
 	height: calc(160px * .7);
 	background-color: #ffffff;;
