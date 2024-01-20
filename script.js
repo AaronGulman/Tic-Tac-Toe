@@ -14,6 +14,7 @@ const WINNING_COMBINATIONS = [
 	[2,4,6]
 ]
 const winningMsg = document.querySelector('[data-winning-Msg-Txt]')
+const winningMsgEl = document.querySelector('#winningMsg')
 
 startGame()
 
@@ -43,8 +44,10 @@ function endGame(draw){
 	if(draw){
 		
 	}else{
-		winningMsgTxt
+	winningMsg.innerText = `${circleTurn ? "O's" :
+	 "X's"} Wins! `
 	}
+	winningMsgEl.classList.add("display")
 }
 
 
