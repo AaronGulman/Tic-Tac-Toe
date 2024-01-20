@@ -15,16 +15,23 @@ const WINNING_COMBINATIONS = [
 ]
 const winningMsg = document.querySelector('[data-winning-Msg-Txt]')
 const winningMsgEl = document.querySelector('#winningMsg')
+const restartBtn = document.querySelector("#restart")
 
 startGame()
+
+restartBtn.addEventListener('click', startGame)
 
 function startGame(){
 	circleTurn = false;
 	squares.forEach(square => {
+		square.classList.remove(X_CLASS)
+		square.classList.remove(CIRCLE_CLASS)
+		square.removeEventListener('click', handleClick)
 		square.addEventListener("click", handleClick, {once: true})
 	
 	})
 	setGameHoverClass()
+	winningMsgEl.classList.remove('display')
 }
 
 function handleClick(e){
@@ -42,7 +49,7 @@ function handleClick(e){
 }
 
 function isDraw(){
-	return squares/every(cell => {
+	return [...squares].every(cell => {
 		return cell.classList.contains(X_CLASS) ||
 		cell.classList.contains(CIRCLE_CLASS)
 	})
@@ -50,7 +57,7 @@ function isDraw(){
 
 function endGame(draw){
 	if(draw){
-		winningMsgEl.innerText = 'Draw!'
+		winningMsg.innerText = 'Draw!'
 	}else{
 	winningMsg.innerText = `${circleTurn ? "O's" :
 	 "X's"} Wins! `
