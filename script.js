@@ -1,5 +1,5 @@
 const squares = document.querySelectorAll("[data-square]");
-const game = document.querySelectorAll("#board")
+const game = document.querySelector("#board")
 const X_CLASS = 'x'
 const CIRCLE_CLASS = 'circle'
 let circleTurn
@@ -10,9 +10,10 @@ const WINNING_COMBINATIONS = [
 	[0,3,6],
 	[1,4,7],
 	[2,5,8],
-	[0,4,8]
+	[0,4,8],
 	[2,4,6]
 ]
+const winningMsg = document.querySelector('[data-winning-Msg-Txt]')
 
 startGame()
 
@@ -29,11 +30,21 @@ function handleClick(e){
  const cell = e.target;
  const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
  placeMark(cell, currentClass)
- if(checkWin()
+ if(checkWin(currentClass)){
+	endGame(false)	
+ }
 
 
  swapTurns()
  setGameHoverClass()
+}
+
+function endGame(draw){
+	if(draw){
+		
+	}else{
+		winningMsgTxt
+	}
 }
 
 
@@ -57,7 +68,14 @@ function setGameHoverClass(){
 	}
 }
 
+function checkWin(currentClass){
+	return WINNING_COMBINATIONS.some(combination => {
+		return combination.every(index => {
+			return squares[index].classList.contains(currentClass)
 
+		})
+	})
+}
 
 // 	const square = 
 // clickCount++;
