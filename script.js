@@ -28,21 +28,29 @@ function startGame(){
 }
 
 function handleClick(e){
- const cell = e.target;
- const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
- placeMark(cell, currentClass)
- if(checkWin(currentClass)){
-	endGame(false)	
- }
+	const cell = e.target;
+	const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS
+	placeMark(cell, currentClass)
+	if(checkWin(currentClass)){
+		endGame(false)	
+	} else if(isDraw()){
+		endGame(true)
+	}else{
+	swapTurns()
+	setGameHoverClass()
+	}
+}
 
-
- swapTurns()
- setGameHoverClass()
+function isDraw(){
+	return squares/every(cell => {
+		return cell.classList.contains(X_CLASS) ||
+		cell.classList.contains(CIRCLE_CLASS)
+	})
 }
 
 function endGame(draw){
 	if(draw){
-		
+		winningMsgEl.innerText = 'Draw!'
 	}else{
 	winningMsg.innerText = `${circleTurn ? "O's" :
 	 "X's"} Wins! `
